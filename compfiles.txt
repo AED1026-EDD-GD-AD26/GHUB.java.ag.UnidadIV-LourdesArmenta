@@ -1,2 +1,6 @@
 ./miPrincipal/Principal.java
 ./miTest/AppTest.java
+./arbolBinario/Nodo.java
+./arbolBinario/ArbolBinario.java
+./pila/Nodo.java
+./pila/Pila.java
