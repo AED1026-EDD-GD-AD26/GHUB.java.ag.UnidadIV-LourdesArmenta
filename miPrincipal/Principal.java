@@ -1,6 +1,8 @@
 package miPrincipal;
 import arbolBinario.ArbolBinario;
 import arbolBinario.Nodo;
+import arbolBinario.Estudiante;
+import arbolBinario.Entero;
 
 public class Principal {
    
@@ -37,8 +39,32 @@ public class Principal {
         ab.postordenIterativo();
         System.out.println("\nRecorrido por Niveles");
         ab.recorrerPorNiveles();
+        System.out.println();
+        
+        Estudiante est1 = new Estudiante(345,"Ana");
+        Estudiante est2 = new Estudiante(123, "Beto");
+         
+        if(est1.getCodigo()>est2.getCodigo()){
+            System.out.println(est1+" es mayor que "+est2);
+        }else if(est1.getCodigo()<est2.getCodigo()){
+            System.out.println(est1+" es menor que "+est2);
+        }else{
+            System.out.println(est1+" es igual que "+est2);
+        }
 
+        if(est1.esMayor(est2)){
+            System.out.println(est1+" es mayor que "+est2);
+        }else if(est1.esMenor(est2)){
+            System.out.println(est1 + "es menor que "+est2);
+        }else{
+            System.out.println(est1+ " es igual que "+est2);
+        }
 
-       
+        Entero e1 = new Entero(10);
+        Entero e2 = new Entero(5);
+        if(e1.esMayor(e2)){
+            System.out.println(e1+" es mayor que "+e2);
+        }
+ 
     }
 }

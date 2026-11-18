@@ -1,6 +1,9 @@
 ./miPrincipal/Principal.java
 ./miTest/AppTest.java
+./arbolBinario/Entero.java
 ./arbolBinario/Nodo.java
+./arbolBinario/Estudiante.java
+./arbolBinario/Comparable.java
 ./arbolBinario/ArbolBinario.java
 ./cola/Nodo.java
 ./cola/Cola.java

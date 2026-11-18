@@ -98,7 +98,7 @@ public class ArbolBinario {
             while (aux.getIzquierdo()!=null){
                 pila.apilar(aux);
                 //aux.getIzquierdo(); //AQUI ESTABA EL ERRO
-                aux= aux.getIzquierdo();
+                aux = aux.getIzquierdo();
             }
             while(aux !=null && (aux.getIzquierdo() == null) || aux.getDerecho() ==q ){
                 visitar(aux);
