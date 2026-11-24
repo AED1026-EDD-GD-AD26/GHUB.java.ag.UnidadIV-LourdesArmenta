@@ -3,6 +3,7 @@ import arbolBinario.ArbolBinario;
 import arbolBinario.Nodo;
 import arbolBinario.Estudiante;
 import arbolBinario.Entero;
+import arbolBinario.ArbolBinarioBusqueda;
 
 public class Principal {
    
@@ -65,6 +66,26 @@ public class Principal {
         if(e1.esMayor(e2)){
             System.out.println(e1+" es mayor que "+e2);
         }
+        
+        try{
+             //crear un arbolBinario Ordenado
+            ArbolBinarioBusqueda abb = new ArbolBinarioBusqueda();
+            //Agregar los datos al arbol binario ordenado 
+            //version iterativa
+            System.out.println("Insertando alguos elementos:");
+            abb.insertar(new Entero(10));
+            abb.insertar(new Entero(15));
+            abb.insertar(new Entero(30));
+            abb.insertar(new Entero(5));
+            abb.insertar(new Entero(2));
+            abb.insertar(new Entero(1));
+            //version recursiva
+            abb.insertar2(new Entero(12));
+        }catch(Exception e){
+            System.out.println("Error!"+e.getMessage());
+        }
+        //falra que copien BPrinterTree
+
  
     }
 }

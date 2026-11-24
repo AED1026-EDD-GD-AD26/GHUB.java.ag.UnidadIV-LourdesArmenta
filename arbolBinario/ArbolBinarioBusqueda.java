@@ -139,14 +139,14 @@ public class ArbolBinarioBusqueda {
     public boolean eliminar(Object valor){
         Comparable dato = (Comparable)valor;
         //Buscar le nodo a eliminar y su antecesor
-        Nodo antecedor = null;// antecero de nodo a eliminar,
+        Nodo antecesor = null;// antecero de nodo a eliminar,
         //y el nodo a eliminar esta en aux
         Nodo aux = raiz;
         while(aux !=null){
             if(dato.esIgual(aux.getValor())){
                 break;
             }
-            antecedor = aux;
+            antecesor = aux;
             if(dato.esMenor(aux.getValor())){
                 aux = aux.getIzquierdo();
             }else{
@@ -156,9 +156,66 @@ public class ArbolBinarioBusqueda {
         }
         if(aux==null)
            return false; //dato no encontrado
-        //Si llega a este punto,el nodo a eliminat existe y esta en aux
+        //Si llega a este punto,el nodo a eliminar existe y esta en aux
         //y su antecesor es antecesor
-        ///AQUI ME QUEDE
+        // Examinar cada caso:
+        // 1.- Si el nodo a eliminar es la raiz
+        //Sin hijos: asigna null a raiz.
+        //Solo hijo derecho: ese hijo pasa a ser la raíz.
+        //Solo hijo izquierdo: ese hijo pasa a ser la raíz.
+        if (antecesor == null && (aux.getIzquierdo() == null || aux.getDerecho() == null)) {
+            if (aux.getIzquierdo() == null) {
+                raiz = aux.getDerecho();
+            } else {
+                raiz = aux.getIzquierdo();
+            }
+            return true;
+        }
+        // 2.- Si tiene menos de dos hijos, incluso una hoja, reajustar los enlaces
+        if (aux.getIzquierdo() == null) {
+            // cuando llego aquí ya se que NO TIENE DOS HIJOS
+            // Compara los nodos directamente para saber que enlace actualizar.
+            if (antecesor.getIzquierdo() == aux) {
+                antecesor.setIzquierdo(aux.getDerecho());
+            } else {
+                antecesor.setDerecho(aux.getDerecho());
+            }
+        }else if (aux.getDerecho() == null) {
+            
+            if (antecesor.getIzquierdo() == aux) {
+                antecesor.setIzquierdo(aux.getIzquierdo());
+            } else {
+                antecesor.setDerecho(aux.getIzquierdo());
+            }
+        }else {
+            // el nodo a eliminar tiene rama izquierda y rama derecha
+            // es decir tiene DOS HIJOS
+            reemplazarPorMayorIzquierdo(aux);
+        }
+        aux = null;
+        return true;
+    }
+     /*
+     * Reemplazar el nodo actual, por el mayor de la rama izquierda
+     */
+    private void reemplazarPorMayorIzquierdo(Nodo act) {
+        Nodo mayor = act;
+        Nodo ant = act;
+        mayor = act.getIzquierdo();
+        // buscar el mayor de la rama izquiera
+        // ant:es el antecesor de mayor
+        while (mayor.getDerecho() != null) {
+            ant = mayor; 
+            mayor = mayor.getDerecho();
+        }
+        // cuando llego ya encontre el mayor
+        act.setValor(mayor.getValor());// reemplazo
+        // reajuste
+        if (ant == act) {
+            ant.setIzquierdo(mayor.getIzquierdo());
+        } else {
+            ant.setDerecho(mayor.getIzquierdo());
+        }
 
     }
 
