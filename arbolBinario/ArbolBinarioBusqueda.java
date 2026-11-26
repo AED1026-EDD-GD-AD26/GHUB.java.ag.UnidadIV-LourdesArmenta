@@ -27,6 +27,35 @@ public class ArbolBinarioBusqueda {
     public void insertar(Object valor) throws Exception{
         Comparable dato = (Comparable) valor;
         Nodo nuevo = new Nodo();
+        nuevo.setValor(valor);
+        if (raiz == null) {
+            raiz = nuevo;
+        } else {
+            // utilizo una varible auxiliar que hace referencia al padre
+            Nodo anterior = null;
+            // utilizo otro variable auxiliar que va recorriendo los nodos,
+            // desde la raiz
+            Nodo aux = raiz;
+            while (aux != null) {
+                anterior = aux;
+                if (dato.esMenor(aux.getValor()))
+                    aux = aux.getIzquierdo();
+                else if (dato.esMayor(aux.getValor()))
+                    aux = aux.getDerecho();
+                else
+                    throw new Exception("Dato duplicado");
+
+            }
+            // es en este punto en donde se enlaza el nuevo nodo
+            if (dato.esMenor(anterior.getValor()))
+                anterior.setIzquierdo(nuevo);
+            else
+                anterior.setDerecho(nuevo);
+        }
+
+        /* 
+        Comparable dato = (Comparable) valor;
+        Nodo nuevo = new Nodo();
         nuevo.setValor(dato);
         if(raiz == null){
             raiz = nuevo;
@@ -50,6 +79,7 @@ public class ArbolBinarioBusqueda {
             else
                 anterior.setDerecho(nuevo);
         }
+        */
     }
     /*
     interfaz pública del método recurso para insertar

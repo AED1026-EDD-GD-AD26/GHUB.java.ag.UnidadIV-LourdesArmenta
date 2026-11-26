@@ -5,6 +5,7 @@ import arbolBinario.Estudiante;
 import arbolBinario.Entero;
 import arbolBinario.ArbolBinarioBusqueda;
 
+
 public class Principal {
    
     public static void main(String[] args) {
@@ -66,10 +67,11 @@ public class Principal {
         if(e1.esMayor(e2)){
             System.out.println(e1+" es mayor que "+e2);
         }
+         //crear un arbolBinario Ordenado
+            ArbolBinarioBusqueda abb = new ArbolBinarioBusqueda();
         
         try{
-             //crear un arbolBinario Ordenado
-            ArbolBinarioBusqueda abb = new ArbolBinarioBusqueda();
+           
             //Agregar los datos al arbol binario ordenado 
             //version iterativa
             System.out.println("Insertando alguos elementos:");
@@ -84,7 +86,27 @@ public class Principal {
         }catch(Exception e){
             System.out.println("Error!"+e.getMessage());
         }
-        //falra que copien BPrinterTree
+        //Recorridos
+        System.out.println("\nPreorden Recursivos");
+        abb.preorden();
+        System.out.println("\nPreorden Iterativo");
+        abb.preordenIterativo();
+        System.out.println("\nInorden Recursivos");
+        abb.inorden();
+        System.out.println("\nInorden Iterativo");
+        abb.inordenIterativo();
+        System.out.println("\nPostorden Recursivos");
+        abb.postorden();
+        System.out.println("\nPostorden Iterativo");
+        abb.postordenIterativo();
+        System.out.println("\nRecorrido por Niveles");
+        abb.recorrerPorNiveles();
+        System.out.println();
+
+        //Imprimo el arbol después de las inserciones
+        arbolBinario.BTreePrinter.printNode(abb.getRaiz());
+        System.out.println();
+
 
  
     }
