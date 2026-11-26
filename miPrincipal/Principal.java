@@ -106,6 +106,52 @@ public class Principal {
         //Imprimo el arbol después de las inserciones
         arbolBinario.BTreePrinter.printNode(abb.getRaiz());
         System.out.println();
+        //Busqueda iterativa
+        Nodo aux = abb.buscar(new Entero(30));
+        if(aux ==null){
+            System.out.println("\nDato No existe");
+        }else{
+            System.out.println("\nEncontramos el Dato:"+aux.getValor());
+        }
+        //Busqueda recursiva
+        aux = abb.buscar2(new Entero(3));
+        if(aux ==null){
+            System.out.println("\nDato No existe");
+        }else{
+            System.out.println("\nEncontramos el Dato:"+aux.getValor());
+        }
+        //Eliminar en No con un solo hijo
+        abb.eliminar(new Entero(2));
+        //mostrar el arbol de nuevo
+        arbolBinario.BTreePrinter.printNode(abb.getRaiz());
+        System.out.println();
+        //eliminamo una hoja
+        abb.eliminar(new Entero(30));
+        //mostrar el arbol de nuevo
+        arbolBinario.BTreePrinter.printNode(abb.getRaiz());
+        System.out.println();
+        //eliminar un nodo con 2 hijos
+        abb.eliminar(new Entero(10));
+         //mostrar el arbol de nuevo
+        arbolBinario.BTreePrinter.printNode(abb.getRaiz());
+        System.out.println();
+        //inseto algunos elementos
+        try{
+            abb.insertar(new Entero(11));
+            abb.insertar(new Entero(10));
+            abb.insertar(new Entero(9));
+            abb.insertar(new Entero(8));
+
+        }catch(Exception e){
+            System.out.println(e.getLocalizedMessage());
+        }
+         //mostrar el arbol de nuevo
+        arbolBinario.BTreePrinter.printNode(abb.getRaiz());
+        System.out.println();
+
+
+
+
 
 
  

@@ -68,7 +68,7 @@ public class ArbolBinarioBusqueda {
                 anterior = aux;
                 if(dato.esMenor(aux.getValor()))
                     aux = aux.getIzquierdo();
-                if(dato.esMayor(aux.getValor()))
+                else if(dato.esMayor(aux.getValor()))
                     aux = aux.getDerecho();
                 else
                     throw new Exception("Dato duplicado");
