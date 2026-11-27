@@ -1,3 +1,8 @@
+./arbolAVL/Entero.java
+./arbolAVL/Nodo.java
+./arbolAVL/BTreePrinter.java
+./arbolAVL/Comparable.java
+./arbolAVL/ArbolAVL.java
 ./miPrincipal/Principal.java
 ./miTest/AppTest.java
 ./arbolBinario/ArbolBinarioBusqueda.java

@@ -4,7 +4,8 @@ import arbolBinario.Nodo;
 import arbolBinario.Estudiante;
 import arbolBinario.Entero;
 import arbolBinario.ArbolBinarioBusqueda;
-
+import java.util.TreeSet;
+import java.util.Iterator;
 
 public class Principal {
    
@@ -148,6 +149,38 @@ public class Principal {
          //mostrar el arbol de nuevo
         arbolBinario.BTreePrinter.printNode(abb.getRaiz());
         System.out.println();
+        //DEMOSTRAR EL USO DE LA CLASE TreeSet
+        TreeSet<Integer> t = new TreeSet<>();
+        //insertar algunos elementos al arbol
+        t.add(5);
+        t.add(10);
+        t.add(6);
+        t.add(8);
+        //mostrar el contenido del arbol
+        System.out.println("Inorden (Ascendente):");
+        for (Integer valor : t) {
+            System.out.print(valor + " ");
+        }
+        System.out.println();
+        System.out.println("\nDesendente:");
+        System.out.println(t.descendingSet());
+        //elimino un elemento del arbol
+        t.remove(8);
+        System.out.println("\nDesendente:");
+        System.out.println(t.descendingSet());
+        //elimino un elemento del arbol
+        t.remove(1);
+        System.out.println("\nDesendente:");
+        System.out.println(t.descendingSet());
+        //elimino un elemento del arbol
+        System.out.println("Existe el número 5 en el arbol?"+t.contains(5));
+        System.out.println("Existe el número 9 en el arbol?"+t.contains(9));
+        System.out.println("Mostrar el TreeSet utilizando Iterator:");
+        for (Iterator<Integer> it = t.iterator(); it.hasNext();) {
+            System.out.print(it.next()+" ");
+        }
+        System.out.println();
+
 
 
 
